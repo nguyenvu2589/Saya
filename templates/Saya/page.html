@@ -1,0 +1,47 @@
+{% extends 'base.html' %}	
+
+{% load staticfiles %}
+
+{% block title %}{{ store }}{% endblock %}
+
+{% block body_block %}
+<h2 class="center">
+{% if item %} 
+<br><br>
+<h2 class="center">
+<div class="title">{{ item }}</div>
+    <br><br><br><br>
+    <h2 class="center"> Address </h2>
+    <br><br><br>
+    <h2 class="center"> {{ item.address }}</h2>
+    <br>
+    <br>
+
+{% if item.regularprice != None %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="center">
+    <div class= "price">Regular Price: {{ item.regularprice }} $   </div>
+    <br/><br/>
+    <div class= "price">Medium Price: {{ item.midprice }} $   </div>
+    <br/><br/>
+    <div class= "price">Premium Price: {{ item.premiumprice }} $   </div>
+    <br/><br/>
+    </h2>
+{% endif %}
+        <h2 class="center"> Special </h2>
+        {%for i in item.special%}
+            <br><br>
+            <h2 class="center"> {{ i }}</h2>
+            <br><br>
+        {% endfor %}
+
+{% else %}
+    The {{ category_name }} category does not exist !
+{% endif %}
+
+    <div>
+    <p>
+{% endblock %}
