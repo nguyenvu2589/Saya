@@ -42,6 +42,8 @@ def get_location():
 	lon = j['longitude']
 	return float(lat),float(lon) 
 
+def privacy(request):
+	return render(request, 'Saya/privacy.html', context_dict) 
 def location(request):
 	context_dict = {}
 	local = []

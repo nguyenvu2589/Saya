@@ -13,7 +13,7 @@ from Foodie.models import Category, Page
 #### if stament : take arg[1] eles .... generic link. 
 
 def populate1(link):
-	print "Here we go "
+	
 	#### need to change this to  actual GET function from API. NOT DATABASE>.....
 	if link is None:
 		link = 'https://apibaas-trial.apigee.net/melaniewoe/sandbox/woegasstations'
@@ -47,7 +47,39 @@ def populate1(link):
 							special= item['special'],
 							address = item['address'],
 							)
-					
+### this for Bhuwan link 
+def populate(link):
+	
+	#### need to change this to  actual GET function from API. NOT DATABASE>.....
+	if link is None:
+		link = 'http://brsapkota-test.apigee.net/gas/getall'
+	fullMenu =requests.get(link)
+	fullMenu = fullMenu.json()
+	catList = set()
+
+	for item in fullMenu:
+		cat1 = add_cat(item['store'])
+		if cat1 =='gas':
+			add_page(category = cat1, 
+					name = item['storeName'],
+					views = 0,
+					midprice = item['mid'],
+					premiumprice = item['premium'],
+					regularprice = item['regular'],
+					special= (x.encode('UTF8') for x in item['special']),
+					address = item['location'],
+					)
+		else : 
+			add_page(category = cat1, 
+					name = item['storeName'],
+					views = 0,
+					midprice = None,
+					premiumprice = None,
+					regularprice = None,
+					special= item['special'],
+					address = item['location'],
+					)
+
 def printResult ():
 	for c in Category.objects.all():
 		for p in Page.objects.filter(category =c):
@@ -72,7 +104,8 @@ def add_cat(name):
 
 if __name__ == '__main__':
 	print "Start populating script ..."
-	
+	link = 'http://brsapkota-test.apigee.net/gas/getall'
+	link2 = 'https://apibaas-trial.apigee.net/melaniewoe/sandbox/woegasstations'
+	populate(link)
 	populate1(link)
-	#printResult()
 
