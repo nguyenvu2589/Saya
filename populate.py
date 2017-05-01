@@ -1,6 +1,8 @@
 import os
 import sys
 import requests
+from decimal import *
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Saya.settings')
 
 import django
@@ -59,6 +61,7 @@ def populate(link):
 
 	for item in fullMenu:
 		cat1 = add_cat(item['store'])
+<<<<<<< Updated upstream
 		if cat1 =='gas':
 			add_page(category = cat1, 
 					name = item['storeName'],
@@ -67,6 +70,16 @@ def populate(link):
 					premiumprice = item['premium'],
 					regularprice = item['regular'],
 					special= (x.encode('UTF8') for x in item['special']),
+=======
+		if cat1.name =='gas':
+			add_page(category = cat1, 
+					name = item['storeName'],
+					views = 0,
+					midprice = Decimal(str(item['mid'])),
+					premiumprice = Decimal(str(item['premium'])),
+					regularprice = Decimal(str(item['regular'])),
+					special= item['special'],
+>>>>>>> Stashed changes
 					address = item['location'],
 					)
 		else : 
@@ -105,7 +118,12 @@ def add_cat(name):
 if __name__ == '__main__':
 	print "Start populating script ..."
 	link = 'http://brsapkota-test.apigee.net/gas/getall'
+<<<<<<< Updated upstream
 	link2 = 'https://apibaas-trial.apigee.net/melaniewoe/sandbox/woegasstations'
 	populate(link)
 	populate1(link)
+=======
+	populate(link)
+	#printResult()
+>>>>>>> Stashed changes
 
