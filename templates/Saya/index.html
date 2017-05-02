@@ -7,8 +7,88 @@
 {% block body_block %}
 <!--==============================Content=================================-->
 <div class="content"><div class="ic">WEB API 2017 Melanie - Dai - Bhuwan - Narayan - Nguyen</div>
-	
 
+<!--=============================Display CSS===============================-->
+<style>
+/* price displays */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+html {
+  background: rgb(246, 248, 248);
+}
+body {
+  padding: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;  
+  margin-bottom: 30px;
+}
+.promos {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.promo {
+  width: 250px;
+  background: #0F1012; 
+  color: #f9f9f9;
+  float: left;
+}
+.deal {
+  padding: 10px 0 0 0;
+}
+.deal span {
+  display: block;
+  text-align: center;
+}
+.deal span:first-of-type {
+  font-size: 23px;  
+}
+.deal span:last-of-type {
+  font-size: 13px;
+}
+.promo .price {
+  display: block;
+  width: 250px;  
+  background: #292b2e;
+  margin: 15px 0 10px 0;
+  text-align: center;
+  font-size: 23px;
+  padding: 17px 0 17px 0;
+}
+
+</style>
+
+<!--============================ price display ===========================-->
+<div class="content"><div class="ic">Build by Melanie Woe</div>
+<br>
+<div class="promos">  
+	<div class="promo">
+		<div class="deal">
+    		<span>Regular</span>
+    		<span>Average Price</span>
+  		</div>
+  		<span class="price">${{average_reg_price}}</span>
+	</div>
+<div class="promo scale">
+  	<div class="deal">
+    	<span>Mid</span>
+    	<span>Average Price</span>
+  	</div>
+  	<span class="price">${{average_mid_price}}</span>
+	</div>
+<div class="promo">
+  	<div class="deal">
+    	<span>Premium</span>
+    	<span>Average Price</span>
+  	</div>
+  	<span class="price">${{average_prem_price}}</span>
+	</div>
+</div>
+</div>
+
+
+<!--==============================Content=================================-->
+<br>
 	{%if store %}
 		{%if pages %}
 			{% for name in store%}

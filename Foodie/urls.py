@@ -5,6 +5,7 @@ from Foodie import views
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
         url(r'^upload/', views.upload, name= 'upload'),
+        url(r'^about/', views.about, name= 'about'),
         url(r'^location/', views.location, name= 'location'),
         url(r'^special/', views.special, name= 'special'),
         url(r'^privacy/', views.privacy, name= 'privacy'),
