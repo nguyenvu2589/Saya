@@ -57,10 +57,18 @@ body {
 }
 
 </style>
+<br><br>
+{% if user.is_authenticated %}
+  <h2>Hey !!! Hello {{ user.username }}!</h2>
+  {% else %}
+  <h3>Hey Stranger!  What are you waiting for ...... LOG in already</h3>
+  <h4><a href= "/Foodie/login" >Click here to Login</a></h4>
+  {% endif %}
 
 <!--============================ price display ===========================-->
 <div class="content"><div class="ic">Build by Melanie Woe</div>
 <br>
+<h3> <div class=center> Date: {{ date }} </h3>
 <div class="promos">  
 	<div class="promo">
 		<div class="deal">

@@ -6,10 +6,12 @@
 
 {% block body_block %}
 
-
+<div class = "content">
+<br><br><br>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token%}
-	Paste the API link here <input type="text" name="APIlink"><br>
+
+	<h3>Paste the API link here <input type="text" name="APIlink"><br>
 	
  <button class="btn btn-primary" type="submit" name="submit">Upload</button>
 <br>

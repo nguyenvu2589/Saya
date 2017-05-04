@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'views', 'midprice','premiumprice','regularprice','feature','special','address','des','image')
-
+    list_editable = ('feature',)
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     picture = models.ImageField(upload_to='profile_images', blank = True)

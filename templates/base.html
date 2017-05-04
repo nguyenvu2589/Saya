@@ -54,6 +54,9 @@
     </script>
    
   </head>
+  
+  
+
   <body class="page1" id="top">
 <!--==============================header=================================-->
     <header>
@@ -118,7 +121,18 @@
             <a href="#" class="fa fa-google-plus"></a>
           </div>
           <div class="copy">
-            Melanie - Dai - Bhuwan - Narayan - Nguyen | <a href="/Foodie/privacy">Privacy Policy</a>
+            Melanie - Dai - Bhuwan - Narayan - Nguyen | 
+            {% if user.is_authenticated %}
+            <a href="/Foodie/upload">UpLoad</a>   |
+            {% endif %}   
+            <a href="/Foodie/register">Register</a> <t> |
+            {% if not user.is_authenticated %}
+            <a href="/Foodie/login">Log in</a> <t>  |
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a href="/Foodie/logout">Logout</a>
+            {% endif %}
+
           </div>
         </div>
       </div>
